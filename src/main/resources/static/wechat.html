@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+        *{
+            padding:0;
+            margin:0;
+        }
+        img{
+            border:0;
+        }
+    </style>
+</head>
+<body>
+<img alt="微信二维码" src="" />
+<script type="text/javascript">
+    $(function(){
+        var url = "/api/getTicket";
+        $.get(url,function(ticket){
+            var src = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="+ticket;
+            $("img").attr("src",src);
+        });
+    });
+</script>
+</body>
+</html>
