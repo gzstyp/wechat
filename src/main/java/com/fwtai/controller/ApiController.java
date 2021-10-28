@@ -39,10 +39,17 @@ public class ApiController{
         }
     }
 
+    //生成小程序二维码
     @RequestMapping("/getTicket")
     public void getTicket(final HttpServletResponse response){
         final String ticket = ToolWechat.getQrCodeTicket();
         writer(response,ticket);
+    }
+
+    //二维码参数page
+    @RequestMapping("/page")
+    public void page(final HttpServletRequest request,final HttpServletResponse response){
+        System.out.println("---------------page---------------");
     }
 
     private void writer(final HttpServletResponse response,final String msg){

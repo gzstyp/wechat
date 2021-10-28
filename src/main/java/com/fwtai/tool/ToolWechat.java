@@ -77,6 +77,7 @@ public final class ToolWechat{
         final JSONObject action_info = new JSONObject();
         action_info.put("scene",scene);
         params.put("action_info",action_info);
+        params.put("page","/api/page");
         params.put("action_name","QR_STR_SCENE");
         params.put("expire_seconds",600);// 60 * 10 = 10分钟
         try {
@@ -168,5 +169,38 @@ public final class ToolWechat{
             e.printStackTrace();
         }
         return map;
+    }
+
+    /**
+     * 用于处理所有的事件和消息的回复
+     * @param requestMap
+     * @return 返回的是xml数据包
+     * by 罗召勇 Q群193557337
+     */
+    public static String getRespose(final Map<String,String> requestMap) {
+        final String msgType = requestMap.get("MsgType");
+        switch (msgType) {
+            //处理文本消息
+            case "text":
+                break;
+            case "image":
+                break;
+            case "voice":
+                break;
+            case "video":
+                break;
+            case "shortvideo":
+                break;
+            case "location":
+                break;
+            case "link":
+                break;
+            case "event":
+                break;
+            default:
+                break;
+        }
+        //把消息对象处理为xml数据包
+        return null;
     }
 }
